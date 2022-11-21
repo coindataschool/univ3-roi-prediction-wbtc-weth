@@ -8,6 +8,8 @@ import streamlit as st
 st.set_page_config(page_title='ROI-Prediction-Univ3-WBTC-WETH', 
     layout='wide', page_icon='📈')
 
+st.title('Machine Learning Predictions of ROI and Fee APR of UniV3 WBTC-WETH positions on Ethereum')
+
 # plot actual vs. predictions on test set
 st.header('Model performance on a set of data not used in training')
 c1, c2 = st.columns(2)
