@@ -8,7 +8,7 @@ The dashboard compares the predictions with the actuals on a set of data that we
 used at all during model training and selection via cross-validation. It also 
 allows users to enter their own numbers and get back model predicted results. 
 
-[screen](https://github.com/coindataschool/univ3-roi-prediction-wbtc-weth/blob/main/screen.png)
+![screen](https://github.com/coindataschool/univ3-roi-prediction-wbtc-weth/blob/main/screen.png)
 
 The models are limited by the data used for training. Use with caution.
 
