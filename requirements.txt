@@ -4,3 +4,4 @@ streamlit
 joblib
 plotly
 scikit-learn
+xgboost
