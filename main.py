@@ -48,7 +48,7 @@ with c4:
 
 # predict using ML models
 if price_upper <= price_lower:
-    st.write('Make sure your upper price limit bigger than lower price limit!')
+    st.write('Make sure your upper price limit > lower price limit!')
 else:
     row_pred = pd.DataFrame({
         'ROI': predict('roi', fee_tier, price_lower, price_upper, age),
