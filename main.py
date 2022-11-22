@@ -98,7 +98,7 @@ with c1:
     st.subheader('Code')
     st.markdown('- [Download data](https://github.com/coindataschool/univ3lp/blob/main/scripts/01-pull-data.py)')
     st.markdown('- [Prepare data](https://github.com/coindataschool/univ3lp/blob/main/scripts/02-prep-data.py)')
-    st.markdown('- [Train Models](https://github.com/coindataschool/univ3lp/blob/main/scripts/03-model-roi-n-fee-apr.py)')
+    st.markdown('- [Train Models](https://github.com/coindataschool/univ3lp/blob/main/scripts/03-model-roi-n-fee-apr-wbtc-weth.py)')
     st.markdown('- [This Dashboard](https://github.com/coindataschool/univ3-roi-prediction-wbtc-weth)')
 with c2:
     st.subheader('Support my work')
