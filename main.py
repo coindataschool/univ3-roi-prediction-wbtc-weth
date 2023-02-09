@@ -79,17 +79,17 @@ st.header('Methodology')
 c1, c2 = st.columns(2)
 with c1:
     st.subheader('Data')
-    st.markdown("Ideally, we want to work with a dataset that has only\n1. positions that never had liquidity partially removed,\n2. positions that never had additional liquidity added,\n3. positions that ran its course and had 100% liquidity removed and no new liquidity added afterwards.\nA dataset of 1 and 2 was downloaded from Revert Finance on Nov 20, 2022 at 01:13:00 UTC. The data-pulling script was written by [0x1egolas](https://twitter.com/0x1egolas). Unfortunately, data of 3 cannot be easily obtained.")
+    st.markdown("Ideally, we want to work with a dataset that has only\n1. positions that never had liquidity partially removed,\n2. positions that never had additional liquidity added,\n3. positions that ran its course and had 100% liquidity removed and no new liquidity added afterwards.\nTwo datasets of 1 and 2 were downloaded from Revert Finance on Nov 20, 2022 at 01:13:00 UTC and Feb 09, 2023 at 01:28:00 UTC. The data-pulling script was written by [0x1egolas](https://twitter.com/0x1egolas). Unfortunately, data of 3 cannot be easily obtained.")
     st.markdown("We then took a subset of data that meet all of the following criteria:\n - initial deposit value is between \$1,000 and \$1M US Dollars,\n- age of position is at least 12 hours,\n- lower BTCETH limit is at least 5,\n- upper BTCETH limit is at most 60.")
-    st.markdown("Ranges of Important Variables on this subset:\n- Age ranges from 0.5 to 564.0 days,\n- Deposit ranges from \$1,005.9 to \$925,109 USD,\n- Price lower limit ranges from 5.0 to 17.0,\n- Price upper limit ranges from 12.0 to 50.0,\n- ROI ranges from -25.59% to 34.80%,\n- Fee APR ranges from 0.05% to 167.84%.")
-    st.markdown("Finally, we split this subset into a training set (80%, 673 records) and a test set (20%, 169 records). We trained ML models on the training set with cross-validation (cv). Throughout the training, we did not touch the test set, nor did we once peek at model performance on the test set. We chose the best model according to cv error. Only after we finalized the model, we used it on the test set to get the predictions displayed at the top of this page.")
+    st.markdown("Ranges of Important Variables on this subset:\n- Age ranges from 0.6 to 643.9 days,\n- Deposit ranges from \$1,005.9 to \$984,144 USD,\n- Price lower limit ranges from 5.0 to 17.0,\n- Price upper limit ranges from 12.0 to 50.0,\n- ROI ranges from -25.59% to 38.17%,\n- Fee APR ranges from 0.35% to 131.54%.")
+    st.markdown("Finally, we split this subset into a training set (80%, 892 records) and a test set (20%, 224 records). We trained ML models on the training set with cross-validation (cv). Throughout the training, we did not touch the test set, nor did we once peek at model performance on the test set. We chose the best model according to cv error. Only after we finalized the model, we used it on the test set to get the predictions displayed at the top of this page.")
 with c2:
     st.subheader('Machine Learning')
     st.markdown("Targets:\n- ROI \n- Fee APR")
     st.markdown("Features:\n- Fee Tier \n- Age \n- Price Lower Limit \n- Price Upper Limit \n- Price Range (Price Upper Limit - Price Lower Limit).")
     st.markdown("Transformations:\n- Applied `log1p()` to Fee APR, Age, Price Upper Limit and Price Range because they had long right tails.\n- Standardized Price Lower Limit.\n- One-Hot Encoded Fee Tier.")
-    st.markdown("Model selection:\n- XGBOOST regressor was trained, where a single parameter, learning rate, was tuned for optimal performance via 5-fold cross-validation, with negative mean absolute error as the scoring metric.\n- The best model for ROI prediction had a CV error of 1.2%.\n- The best model for Fee APR prediction had a CV error of 3.05%.")
-    st.markdown("Test Set Performance:\n- The best model for ROI prediction had a test error of 1.3%.\n- The best model for Fee APR prediction had a test error of 3.15%.")
+    st.markdown("Model selection:\n- XGBOOST regressor was trained, where a single parameter, learning rate, was tuned for optimal performance via 5-fold cross-validation, with negative mean absolute error as the scoring metric.\n- The best model for ROI prediction had a CV error of 1.1%.\n- The best model for Fee APR prediction had a CV error of 2.8%.")
+    st.markdown("Test Set Performance:\n- The best model for ROI prediction had a test error of 1.1%.\n- The best model for Fee APR prediction had a test error of 2.6%.")
 
 st.markdown("""---""")
     
@@ -103,9 +103,12 @@ with c1:
     st.markdown('- [This Dashboard](https://github.com/coindataschool/univ3-roi-prediction-wbtc-weth)')
 with c2:
     st.subheader('Support my work')
+    st.markdown("- Buy our [UniV3 Guide](https://twitter.com/coindataschool/status/1613886358938058752)")
+    st.markdown("- Send me ETH: `0x783c5546c863f65481bd05fd0e3fd5f26724604e`")
+    st.markdown("- [Tip me sat](https://tippin.me/@coindataschool)")
+    st.markdown("- [Buy me a coffee](https://ko-fi.com/coindataschool)")
     st.markdown("- Subscribe to my [newsletter](https://coindataschool.substack.com/about)")
     st.markdown("- Follow me on twitter: [@coindataschool](https://twitter.com/coindataschool)")
     st.markdown("- Follow me on github: [@coindataschool](https://github.com/coindataschool)")
     st.markdown("- Find me on Dune: [@coindataschool](https://dune.com/coindataschool)")    
-    st.markdown("- Buy me a coffee with ETH: `0x783c5546c863f65481bd05fd0e3fd5f26724604e`")
-    st.markdown("- [Tip me sat](https://tippin.me/@coindataschool)")
+
